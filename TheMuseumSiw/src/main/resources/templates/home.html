@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<!--<head th:replace="fragments/base.html :: headerfiles(title=#{pageTitle.persona})"> </head> -->
+    <head th:replace="fragments/base.html :: headerfiles"> </head> 
+    
+<body>
+    <div class="topnav">
+    	<a  class="active" href="/home" th:text="#{header.home}">Home</a>
+    	<a href="/collezioni" th:text="#{header.collezioni}">Collezioni</a>
+    	<a href="/opere" th:text="#{header.opere}">Opere</a>
+    	<a href="/artisti" th:text="#{header.artisti}">Artisti</a>
+    	<a href="/admin/home" th:text="#{header.areaAdmin}">Area admin</a>
+ 	</div>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+    
+	<section>
+		<h1 th:text="#{header.benvenuto}">Benvenuto:</h1>
+      	<p th:utext="#{header.presentazione}">descrizione</p>
+<br>
+<br>
+
+      	<!-- immagini -->
+      	<div class="home">
+      		<h4 th:text="#{header.esplora}" style="font-style: italic;"></h4>		
+			<div th:if="${opera1}" th:object="${opera1}">
+				<a href="opera.html" 
+	             th:href="@{'/opere' + '/' + ${opera1.id}}" >
+	             <img th:src="@{'data:image/jpeg;base64,' +${image1}}"></a>
+			</div>
+			<div th:unless="${opera1}"></div>
+			<br>
+			<div th:if="${opera2}" th:object="${opera2}">
+				<a href="opera.html" 
+	             th:href="@{'/opere' + '/' + ${opera2.id}}" > 
+	             <img th:src="@{'data:image/jpeg;base64,' +${image2}}"></a>
+			</div>
+			<div th:unless="${opera2}"></div>
+			<br>
+			<div th:if="${opera3}" th:object="${opera3}">
+				<a href="opera.html" 
+	             th:href="@{'/opere' + '/' + ${opera3.id}}" >
+	             <img th:src="@{'data:image/jpeg;base64,' +${image3}}"></a>
+			</div>
+			<div th:unless="${opera3}"></div>
+      	</div>
+      	
+   
+	</section>
+	<section>
+		<h1>Orario Visite</h1>
+		<p th:text="#{header.orario}"</p>
+		<p th:text="#{header.orario2}"</p>
+		<p th:text="#{header.orario3}"</p>
+	</section>
+	
+		<section>
+		<h1>Prezzi Biglietti Di Accesso</h1>
+		<p th:text="#{header.prezzo0}"</p>
+		<p th:text="#{header.prezzo1}"</p>
+		<p th:text="#{header.prezzo2}"</p>
+		<p th:text="#{header.prezzo3}"</p>
+		<p th:text="#{header.prezzo4}"</p>
+	</section>
+	
+		<section>
+		<h1>Come Raggiungerci in Via Veneto,50</h1>
+		<p th:text="#{header.metro}"</p>
+		<p th:text="#{header.autobus}"</p>
+		<p th:text="#{header.parking}"</p>
+	</section>
+
+
+
+   <footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

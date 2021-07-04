@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <!--<head th:replace="fragments/base.html :: headerfiles(title=#{pageTitle.persona})"> </head> -->
+    <head th:replace="fragments/base.html :: headerfiles"> 
+
+    </head> 
+    
+<body>
+  <div class="topnav">
+    <a href="/home" th:text="#{header.home}">Home</a>
+    <a href="/collezioni" th:text="#{header.collezioni}">Collezioni</a>
+    <a href="/opere" th:text="#{header.opere}">Opere</a>
+    <a href="/artisti" th:text="#{header.artisti}">Artisti</a>
+    <a class="active" href="/admin/home" th:text="#{header.areaAdmin}">Area admin</a>
+  </div>
+  <header th:replace="fragments/base.html :: intestazione"></header>
+
+
+  <section>
+    <div>
+        <h1 th:text="#{header.newAdmin}">Benvenuto!</h1>
+
+        <div>
+        <form th:action="@{/admin/register}" method="POST">
+        <table>
+        <tr>
+            <td>Username</td>
+            <td><input type="text" placeholder="username" required
+                       th:field="${credentials.username}"/></td>
+            <td th:if="${#fields.hasErrors('credentials.username')}"
+                th:errors="${credentials.username}" th:style="'color:red'"></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" placeholder="password" required
+                       th:field="${credentials.password}"/></td>
+            <td th:if="${#fields.hasErrors('credentials.password')}"
+                th:errors="${credentials.password}" th:style="'color:red'"></td>
+        </tr>
+        <tr>
+            <td th="#{msgArtista.nome}">Nome</td>
+            <td><input type="text" placeholder="nome" required
+                       th:field="${user.nome}"/></td>
+            <td th:if="${#fields.hasErrors('user.nome')}"
+                th:errors="${user.nome}" th:style="'color:red'"></td>
+        </tr>
+        <tr>
+            <td th="#{msgArtista.cognome}">Cognome</td>
+            <td><input type="text" placeholder="cognome" required
+                       th:field="${user.cognome}"/></td>
+            <td th:if="${#fields.hasErrors('user.cognome')}"
+                th:errors="${user.cognome}" th:style="'color:red'"></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Registra</button>
+            </td>
+        </tr>
+    </table>
+    </form>
+        </div> 
+    </div>
+    
+
+</section>
+
+
+
+
+  <footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

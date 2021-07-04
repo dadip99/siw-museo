@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<!--<head th:replace="fragments/base.html :: headerfiles(title=#{pageTitle.persona})"> </head> -->
+    <head th:replace="fragments/base.html :: headerfiles"> 
+
+    </head> 
+    
+<body>
+  <div class="topnav">
+    <a href="/home" th:text="#{header.home}">Home</a>
+    <a href="/collezioni" th:text="#{header.collezioni}">Collezioni</a>
+    <a href="/opere" th:text="#{header.opere}">Opere</a>
+    <a href="/artisti" th:text="#{header.artisti}">Artisti</a>
+    <a class="active" href="/admin/home" th:text="#{header.areaAdmin}">Area admin</a>
+  </div>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+  
+  <section>    
+    <div>
+        <h1 th:text="#{msgAdmin.NewOpera}">Benvenuto!</h1>
+        <div>
+          <form th:action="@{'/admin/newOpera'}" method="POST" th:object="${opera}"  enctype="multipart/form-data">
+            <div th:if="${#fields.hasGlobalErrors()}">
+                <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+            </div>    
+            <div>
+              <div>
+                <span th:text="#{msgOpera.titolo}">Titolo:</span>
+                <span><input type="text" th:field="*{titolo}" /></span>
+                <span id="errore" th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></span>
+              </div>
+              <div>
+                <span th:text="#{msgOpera.anno}">Anno:</span>
+                <span><input type="text" th:field="*{anno}" /></span>
+                <span id="errore" th:if="${#fields.hasErrors('anno')}" th:errors="*{anno}"></span>
+              </div>    
+              <div>
+                <span th:text="#{msgOpera.descrizione}">Descrizione:</span>
+                <span><textarea type="text" th:field="*{descrizione}" rows="10" cols="80"></textarea></span>
+                <span id="errore" th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
+              </div>    
+              <div>
+                <p th:text="#{msgAdmin.NewOperaArtista}">Scegli artista</p>
+                <ul>
+                  <li th:each="artista : ${artisti}">
+                    <div>
+                      <input type="radio" name="artista" th:value="${artista.id}"/>
+                      <label th:text="|${artista.nome} ${artista.cognome}|"></label>
+                    </div>
+                  </li>
+                </ul>  
+              </div>
+              <div>
+                <p th:text="#{msgAdmin.NewOperaCollezione}">Scegli collezione</p>
+                <ul>
+                  <li th:each="collezione : ${collezioni}">
+                    <div>
+                      <input type="radio" name="collezione" th:value="${collezione.id}"/>
+                      <label th:text="${collezione.nome}"></label>
+                    </div>
+                  </li>
+                </ul>  
+
+              </div>
+                <input type="file" id="avatar" name="foto" accept="image/png, image/jpeg" required>
+              <div>
+
+
+                <span><button type="submit">Create!</button></span>
+              </div>
+          </div>
+        </form>
+
+
+      </div>
+    </div>  
+
+
+
+  </section>
+
+
+
+
+  <footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

@@ -1,0 +1,140 @@
+section{
+ margin:10px;
+ padding:10px;
+background-color:#FFDAB9;
+ border: 1rem solid;              
+}
+footer {
+  height: 10em;
+  
+    border-top-style: outset;
+    margin-top: 9.5em;
+    background-color: rgb(64, 0, 0);
+    color: white;
+    font-size: 90%;
+  }
+
+.topnav {
+  overflow: hidden;
+  background-color:#FFDAB9;
+  border: solid;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  background-color:rgb(128, 0, 0);
+}
+.topnav a:visited {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.topnav a:hover {
+  background-color:#FFDAB9;
+  color: black;
+  text-decoration: none;
+}
+.topnav a.active {
+  background-color:#FFDAB9;
+  color: white;
+}
+
+#admin a:hover {
+	background-color:#FFDAB9;
+  color: white;
+} 
+
+header {
+    background: no-repeat left/cover url(/images/fotomuseo.jpg);
+    display: flex;
+    height: 480px;
+    min-width: 120px;
+    align-items: center;
+    color: #fff;
+    text-shadow: #000 0 0 .2em;
+}
+
+header > h1 {
+       font: italic small-caps bold 70px/70px Georgia, serif;
+    margin: 30%;
+    color:#FFDAB9;
+}
+
+
+
+
+#footer {
+  margin: 25px;
+}
+
+footer > h3{
+        font: italic small-caps bold 35px/35px Georgia, serif;
+        color:#FFDAB9;
+}
+
+footer > p{
+        font: italic small-caps bold 15px/15px Georgia, serif;
+        color:rgb(255, 255, 255);
+}
+
+.adminMenu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+ background-color:rgb(128, 0, 0);
+  color: white;
+}
+
+.adminMenu li a {
+  display: block;
+  text-align: center;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+.adminMenu li a:hover {
+   background-color:#FFDAB9;
+ /* background-color: #DAA520;*/
+  color: white;
+}
+
+
+
+
+img{
+  max-width: 600px;
+  max-height: 600px; 
+}
+
+.home img{
+  max-width: 600px;
+  max-height: 600px; 
+  border: 0;
+}
+
+.home a:hover{
+  border:solid 5px #DAA520;border-radius: 10px;     padding: 5px;
+}
+
+
+a {
+    text-decoration: none;
+    color: #302F2F;
+}
+a:visited {
+    color: #302F2F;
+}
+a:hover {
+    color: red;
+    text-decoration: underline;
+}

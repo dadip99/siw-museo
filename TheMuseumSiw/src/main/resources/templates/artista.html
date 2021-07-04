@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<!--<head th:replace="fragments/base.html :: headerfiles(title=#{pageTitle.persona})"> </head> -->
+    <head th:replace="fragments/base.html :: headerfiles"> </head> 
+    
+<body>
+  <div class="topnav">
+    <a href="/home" th:text="#{header.home}">Home</a>
+    <a href="/collezioni" th:text="#{header.collezioni}">Collezioni</a>
+    <a href="/opere" th:text="#{header.opere}">Opere</a>
+    <a class="active" href="/artisti" th:text="#{header.artisti}">Artisti</a>
+    <a href="/admin/home" th:text="#{header.areaAdmin}">Area admin</a>
+  </div>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+  
+  <section>    
+    
+    <div th:if="${artista}" th:object="${artista}">
+      <h4 th:text="#{msgArtista.nomeCognome}">Artista:</h4>
+      <span th:text="|*{nome} *{cognome}|"></span>
+
+      <h4 th:text="#{msgArtista.dataNascita}">Data nascita: </h4>
+      <p th:utext="*{dataNascita}"></p>
+
+      <h4 th:text="#{msgArtista.luogoNascita}">Luogo nascita: </h4>
+      <p th:utext="*{luogoNascita}"></p>
+
+      <h4 th:text="#{msgArtista.dataMorte}">Data morte: </h4>
+      <p th:utext="*{dataMorte}"></p>
+
+      <h4 th:text="#{msgArtista.luogoMorte}">Luogo morte: </h4>
+      <p th:utext="*{luogoMorte}"></p>
+
+      <h4 th:text="#{msgArtista.nazione}">Nazione: </h4>
+      <p th:utext="*{nazione}"></p>
+      
+      <h4 th:text="#{msgArtista.biografia}">Biografia:</h4>
+      <p th:utext="*{biografia}"></p>
+
+      <h4 th:text="#{header.opere}"></h4>
+      <ul>
+        <li th:each="opera : ${opere}">
+          <a href="opera.html" 
+             th:href="@{'/opere' + '/' + ${opera.id}}" 
+             th:text="|${opera.titolo}, ${opera.anno}|"></a>
+        </li>
+      </ul>
+    </div>
+    <div th:unless="${artista}">Non esiste</div>
+
+
+  </section>
+
+
+
+
+  <footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>
