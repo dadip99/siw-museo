@@ -53,33 +53,6 @@ public class ArtistaController {
 		return "formArtista";
 	}
 	
-	@RequestMapping(value="/admin/modifyArtista", method = RequestMethod.GET)
-	public String scegliArtista(Model model) {
-		model.addAttribute("artisti", artistaService.tutti());
-        return "artistiModifica";
-	}
-	
-	@RequestMapping(value="/admin/modifyArtista/{idA}", method = RequestMethod.GET)
-	public String modificaArtista(@PathVariable("idA")Long id, Model model) {
-		model.addAttribute("artista",artistaService.getById(id) );
-        return "artistaModifica";
-	}
-	
-	@RequestMapping(value="/admin/modifyArtista/{idA}", method = RequestMethod.POST)
-	public String doneModificaArtista(@PathVariable("idA")Long id, @ModelAttribute("artista") Artista artista, 
-			Model model, BindingResult bindingResult) {		
-     
-		this.artistaValidator.validate(artista, bindingResult);
-		if (!bindingResult.hasErrors()) {
-			this.artistaService.elimina(id);
-			this.artistaService.inserisci(artista);
-			model.addAttribute("artista", artista);
-			return "artista";
-		}
-		return "artistaModifica";
-
-	}
-	
 	
 	
 	

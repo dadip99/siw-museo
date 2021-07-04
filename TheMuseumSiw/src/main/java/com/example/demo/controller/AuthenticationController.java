@@ -85,8 +85,7 @@ public class AuthenticationController {
     }
     
 
-   /* Path per TEST Heroku lasciato per poter registrare il primo admin (in precedenza veniva 
-     * aggiunto direttamente sul database */
+   
     @RequestMapping(value = "/register", method = RequestMethod.GET) 
 	public String showRegisterFormProva (Model model) {
 		model.addAttribute("user", new User());
