@@ -18,6 +18,31 @@
       	<p th:utext="#{header.presentazione}">descrizione</p>
 <br>
 <br>
+      	<!-- immagini -->
+      	<div class="home">
+      		<h4 th:text="#{header.esplora}" style="font-style: italic;"></h4>		
+			<div th:if="${opera1}" th:object="${opera1}">
+				<a href="opera.html" 
+	             th:href="@{'/opere' + '/' + ${opera1.id}}" >
+	             <img th:src="@{'data:image/jpeg;base64,' +${image1}}"></a>
+			</div>
+			<div th:unless="${opera1}"></div>
+			<br>
+			<div th:if="${opera2}" th:object="${opera2}">
+				<a href="opera.html" 
+	             th:href="@{'/opere' + '/' + ${opera2.id}}" > 
+	             <img th:src="@{'data:image/jpeg;base64,' +${image2}}"></a>
+			</div>
+			<div th:unless="${opera2}"></div>
+			<br>
+			<div th:if="${opera3}" th:object="${opera3}">
+				<a href="opera.html" 
+	             th:href="@{'/opere' + '/' + ${opera3.id}}" >
+	             <img th:src="@{'data:image/jpeg;base64,' +${image3}}"></a>
+			</div>
+			<div th:unless="${opera3}"></div>
+      	</div>
+      	
 
 	</section>
 	<section>
